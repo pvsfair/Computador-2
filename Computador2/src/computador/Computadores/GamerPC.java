@@ -5,10 +5,25 @@
  */
 package computador.Computadores;
 
+import computador.Generalizacoes.Jogavel;
+import computador.Perifericos.Monitor;
+import computador.Perifericos.Teclado;
+import java.util.List;
+
 /**
  *
  * @author Paulo
  */
 public class GamerPC extends PC{
+    private int VRAM;
+    private String placaDeVideoModelo;
+    private List<Jogavel> jogosInstalados;
+
+    public GamerPC(int VRAM, String placaDeVideoModelo, List<Jogavel> jogosInstalados, int sistemaOperacional, Monitor monitor, Teclado teclado, int HD, int RAM, float processadorGHz, String processadorModelo) {
+        super(sistemaOperacional, monitor, teclado, HD, RAM, processadorGHz, processadorModelo);
+        this.VRAM = VRAM;
+        this.placaDeVideoModelo = placaDeVideoModelo;
+        this.jogosInstalados = jogosInstalados;
+    }
     
 }

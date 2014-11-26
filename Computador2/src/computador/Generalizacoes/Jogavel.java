@@ -7,13 +7,11 @@ package computador.Generalizacoes;
 
 /**
  *
- * @author Paulo
+ * @author Paulo Victor
  */
-public interface Programa {
+public interface Jogavel extends Programa {
 
-    public void iniciar();
+    public void carregarElementos();
 
-    public void executar();
-
-    public void finalizar();
+    public void descarregarElementos();
 }

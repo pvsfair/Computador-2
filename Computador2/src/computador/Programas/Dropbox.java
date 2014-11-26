@@ -9,9 +9,9 @@ import computador.Generalizacoes.Programa;
 
 /**
  *
- * @author Paulo
+ * @author Paulo Victor
  */
-public class Notepad implements Programa {
+public class Dropbox implements Programa {
 
     @Override
     public void iniciar() {

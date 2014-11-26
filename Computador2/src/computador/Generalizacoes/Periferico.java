@@ -10,5 +10,6 @@ package computador.Generalizacoes;
  * @author Paulo
  */
 public interface Periferico {
-    
+
+    public boolean isConectado();
 }

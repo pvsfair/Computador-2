@@ -12,5 +12,13 @@ import computador.Generalizacoes.Periferico;
  * @author Paulo
  */
 public class FoneDeOuvido implements Periferico{
+
+    private boolean conectado;
+    
+    @Override
+    public boolean isConectado() {
+
+        return conectado;
+    }
     
 }
