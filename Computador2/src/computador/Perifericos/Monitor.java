@@ -19,36 +19,56 @@ public class Monitor implements Device, Periferico {
     private int altura;
     private int largura;
     private boolean OnOff;
+    private boolean contectado;
 
     public Monitor() {
+        this.marca = "AOC";
+        this.modelo = "716Sw";
+        this.altura = 720;
+        this.largura = 1280;
+        this.OnOff = false;
     }
 
-    public Monitor(String marca, String modelo, int altura, int largura) {
+    public Monitor(String marca, String modelo, int altura, int largura, boolean OnOff) {
         this.marca = marca;
         this.modelo = modelo;
         this.altura = altura;
         this.largura = largura;
-        this.OnOff = false;
+        this.OnOff = OnOff;
     }
 
     @Override
-    public void ligar() {
-
+    public boolean ligar() {
+        if (!isOn()) {
+            System.out.println("Ligando o monitor.");
+            this.OnOff = true;
+            return true;
+        } else {
+            System.out.println("O seu monitor ja esta ligado.");
+            return false;
+        }
     }
 
     @Override
-    public void desligar() {
-
+    public boolean desligar() {
+        if (isOn()) {
+            System.out.println("Desligando o monitor.");
+            this.OnOff = false;
+            return true;
+        } else {
+            System.out.println("Voce nao precisa desligar um monitor que ja esta desligado.");
+            return false;
+        }
     }
 
     @Override
     public boolean isOn() {
-        return false;
+        return OnOff;
     }
 
     @Override
     public boolean isConectado() {
-        return false;
+        return contectado;
     }
 
     public void atualizaTela() {

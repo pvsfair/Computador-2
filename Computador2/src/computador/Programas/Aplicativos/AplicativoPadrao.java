@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package computador.Generalizacoes;
+package computador.Programas.Aplicativos;
+
+import computador.Generalizacoes.Aplicativo;
 
 /**
  *
  * @author Paulo Victor
  */
-public interface Jogavel extends Programa {
+public class AplicativoPadrao extends Aplicativo{
 
-    public void carregarElementos();
-
-    public void descarregarElementos();
+    public AplicativoPadrao(String nomeAplicativo) {
+        super(nomeAplicativo);
+    }
     
-    public void jogar();
 }

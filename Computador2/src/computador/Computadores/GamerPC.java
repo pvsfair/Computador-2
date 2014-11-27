@@ -19,11 +19,21 @@ public class GamerPC extends PC{
     private String placaDeVideoModelo;
     private List<Jogavel> jogosInstalados;
 
-    public GamerPC(int VRAM, String placaDeVideoModelo, List<Jogavel> jogosInstalados, int sistemaOperacional, Monitor monitor, Teclado teclado, int HD, int RAM, float processadorGHz, String processadorModelo) {
+    public GamerPC(int VRAM, String placaDeVideoModelo, List<Jogavel> jogosInstalados, SO sistemaOperacional, Monitor monitor, Teclado teclado, int HD, int RAM, float processadorGHz, String processadorModelo) {
         super(sistemaOperacional, monitor, teclado, HD, RAM, processadorGHz, processadorModelo);
         this.VRAM = VRAM;
         this.placaDeVideoModelo = placaDeVideoModelo;
         this.jogosInstalados = jogosInstalados;
+    }
+    
+    public boolean jogarJogo(Jogavel jogo){
+        for (Jogavel jogoInstalado : jogosInstalados) {
+            if(jogo.getClass().equals(jogoInstalado)){
+                System.out.println("Executando Jogo");
+                return true;
+            }
+        }
+        return false;
     }
     
 }

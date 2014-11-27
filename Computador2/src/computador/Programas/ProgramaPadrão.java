@@ -5,22 +5,17 @@
  */
 package computador.Programas;
 
-import computador.Generalizacoes.Jogavel;
+import computador.Generalizacoes.Programa;
 
 /**
  *
  * @author Paulo Victor
  */
-public class DarkSouls implements Jogavel {
+public class ProgramaPadrão implements Programa{
+    private String nomeDoPrograma;
 
-    @Override
-    public void carregarElementos() {
-
-    }
-
-    @Override
-    public void descarregarElementos() {
-
+    public ProgramaPadrão(String nomeDoPrograma) {
+        this.nomeDoPrograma = nomeDoPrograma;
     }
 
     @Override
@@ -38,9 +33,11 @@ public class DarkSouls implements Jogavel {
 
     }
 
-    @Override
-    public void jogar() {
-
+    public String getNomeDoPrograma() {
+        return nomeDoPrograma;
     }
 
+    public void setNomeDoPrograma(String nomeDoPrograma) {
+        this.nomeDoPrograma = nomeDoPrograma;
+    }
 }

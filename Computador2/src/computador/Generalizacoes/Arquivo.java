@@ -9,13 +9,18 @@ package computador.Generalizacoes;
  *
  * @author Paulo Victor
  */
-public abstract class Arquivo {
+public abstract class Arquivo implements Comparable<Arquivo>{
     private String nome;
     private String path;
 
     public Arquivo(String nome, String path) {
         this.nome = nome;
         this.path = path;
+    }
+
+    @Override
+    public int compareTo(Arquivo o) {
+        return this.nome.compareTo(o.nome);
     }
 
     public String getNome() {

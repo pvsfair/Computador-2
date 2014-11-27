@@ -12,10 +12,10 @@ import java.util.List;
  * @author Paulo Victor
  */
 public abstract class ArmazenamentoEmNuvem {
-    private int espacoArmazenamento;
-    private String usuario;
-    private String senha;
-    private List<Arquivo> arquivosArmazenados;
+    protected int espacoArmazenamento;
+    protected String usuario;
+    protected String senha;
+    protected List<Arquivo> arquivosArmazenados;
 
     public ArmazenamentoEmNuvem(int espacoArmazenamento, String usuario, String senha) {
         this.espacoArmazenamento = espacoArmazenamento;

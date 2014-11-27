@@ -13,6 +13,12 @@ import computador.Generalizacoes.Programa;
  */
 public class Notepad implements Programa {
 
+    private String nomeDoPrograma;
+
+    public Notepad() {
+        this.nomeDoPrograma = "Notepad";
+    }
+
     @Override
     public void iniciar() {
 
