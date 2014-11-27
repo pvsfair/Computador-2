@@ -5,11 +5,12 @@
  */
 package computador.Computadores;
 
-import computador.Generalizacoes.Programa;
+import computador.Generalizacoes.IPrograma;
 import computador.Perifericos.Monitor;
 import computador.Perifericos.Teclado;
 import computador.Programas.Notepad;
 import computador.Programas.ProgramaPadrão;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -48,30 +49,30 @@ public class PC extends Computador {
 
     @Override
     protected void iniciaSO() {
-        System.out.println("Iniciando o " + this);
-        System.out.println("Aguarde enquanto o SO e inicializado.");
+        JOptionPane.showMessageDialog(null, "Iniciando o " + this);
+        JOptionPane.showMessageDialog(null, "Aguarde enquanto o SO e inicializado.");
     }
 
     @Override
     public boolean executaPrograma(int i) {
         if (i < 0 || i >= programasPadroesInstalados.length) {
-            System.out.println("Index out of range.");
+            JOptionPane.showMessageDialog(null, "Index out of range.");
             return false;
         } else {
-            System.out.println("Executando " + programasPadroesInstalados[i]);
+            JOptionPane.showMessageDialog(null, "Executando " + programasPadroesInstalados[i]);
         }
         return true;
     }
 
     @Override
-    public boolean executaPrograma(Programa programa) {
-        for (Programa programaPI : programasPadroesInstalados) {
+    public boolean executaPrograma(IPrograma programa) {
+        for (IPrograma programaPI : programasPadroesInstalados) {
             if (programa.getClass().equals(programaPI)) {
-                System.out.println("Executando Programa");
+                JOptionPane.showMessageDialog(null, "Executando Programa");
                 return true;
             }
         }
-        System.out.println("O programa não esta instalado.");
+        JOptionPane.showMessageDialog(null, "O programa não esta instalado.");
         return false;
     }
 
@@ -91,9 +92,9 @@ public class PC extends Computador {
     public boolean ligar() {
         boolean ligou = super.ligar();
         if (ligou) {
-            System.out.println("Sistema " + this + " carregado com sucesso.");
+            JOptionPane.showMessageDialog(null, "Sistema " + this + " carregado com sucesso.");
         } else {
-            System.out.println("Houve um problema na inicialização do seu Sistema Operacional.");
+            JOptionPane.showMessageDialog(null, "Houve um problema na inicialização do seu Sistema Operacional.");
         }
         return ligou;
     }
@@ -102,10 +103,10 @@ public class PC extends Computador {
     public boolean desligar() {
         boolean desligou = super.desligar();
         if (desligou) {
-            System.out.println("Seu Sistema Operacional " + this + " foi finalizado com maestria.");
-            System.out.println("Seu computador foi desligado com sucesso.");
+            JOptionPane.showMessageDialog(null, "Seu Sistema Operacional " + this + " foi finalizado com maestria.");
+            JOptionPane.showMessageDialog(null, "Seu computador foi desligado com sucesso.");
         } else {
-            System.out.println("Ocorreu algum erro durante o desligamento de seu computador.");
+            JOptionPane.showMessageDialog(null, "Ocorreu algum erro durante o desligamento de seu computador.");
         }
         return desligou;
     }

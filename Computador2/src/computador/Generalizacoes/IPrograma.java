@@ -7,13 +7,13 @@ package computador.Generalizacoes;
 
 /**
  *
- * @author Paulo Victor
+ * @author Paulo
  */
-public interface Jogavel extends IPrograma {
+public interface IPrograma {
 
-    public void carregarElementos();
+    public void iniciar();
 
-    public void descarregarElementos();
-    
-    public void jogar();
+    public void executar();
+
+    public void finalizar();
 }

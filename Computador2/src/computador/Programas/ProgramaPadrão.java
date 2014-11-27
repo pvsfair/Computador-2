@@ -5,17 +5,17 @@
  */
 package computador.Programas;
 
+import computador.Generalizacoes.IPrograma;
 import computador.Generalizacoes.Programa;
 
 /**
  *
  * @author Paulo Victor
  */
-public class ProgramaPadrão implements Programa{
-    private String nomeDoPrograma;
+public class ProgramaPadrão extends Programa {
 
     public ProgramaPadrão(String nomeDoPrograma) {
-        this.nomeDoPrograma = nomeDoPrograma;
+        super(nomeDoPrograma);
     }
 
     @Override

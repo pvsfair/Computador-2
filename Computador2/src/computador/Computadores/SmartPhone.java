@@ -6,9 +6,10 @@
 package computador.Computadores;
 
 import computador.Generalizacoes.Aplicativo;
-import computador.Generalizacoes.Programa;
+import computador.Generalizacoes.IPrograma;
 import computador.Programas.Aplicativos.AplicativoPadrao;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,8 +37,8 @@ public class SmartPhone extends Computador {
         this.versaoAndroid = versaoAndroid;
         this.tamanhoDaTela = tamanhoDaTela;
     }
-    
-    public SmartPhone(SmartPhone sp){
+
+    public SmartPhone(SmartPhone sp) {
         this.HD = sp.HD;
         this.OnOff = sp.OnOff;
         this.RAM = sp.RAM;
@@ -54,9 +55,9 @@ public class SmartPhone extends Computador {
     public boolean ligar() {
         boolean ligou = super.ligar();
         if (ligou) {
-            System.out.println(this + " carregado com sucesso.");
+            JOptionPane.showMessageDialog(null, this + " carregado com sucesso.");
         } else {
-            System.out.println("Houve um problema na inicialização do seu Celular.");
+            JOptionPane.showMessageDialog(null, "Houve um problema na inicialização do seu Celular.");
         }
         return ligou;
     }
@@ -65,44 +66,44 @@ public class SmartPhone extends Computador {
     public boolean desligar() {
         boolean desligou = super.desligar();
         if (desligou) {
-            System.out.println("Seu " + this + " foi finalizado com perfeição.");
-            System.out.println("Seu celular foi desligado com sucesso.");
+            JOptionPane.showMessageDialog(null, "Seu " + this + " foi finalizado com perfeição.");
+            JOptionPane.showMessageDialog(null, "Seu celular foi desligado com sucesso.");
         } else {
-            System.out.println("Ocorreu algum erro durante o desligamento de seu celular.");
+            JOptionPane.showMessageDialog(null, "Ocorreu algum erro durante o desligamento de seu celular.");
         }
         return desligou;
     }
 
     @Override
     protected void iniciaSO() {
-        System.out.println("Iniciando o " + this);
-        System.out.println("Aguarde enquando o " + this + " é carregado no seu celular.");
+        JOptionPane.showMessageDialog(null, "Iniciando o " + this);
+        JOptionPane.showMessageDialog(null, "Aguarde enquando o " + this + " é carregado no seu celular.");
     }
 
     @Override
     public boolean executaPrograma(int i) {
         if (i < 0 || i >= apkInstalados.size()) {
-            System.out.println("Index out of range.");
+            JOptionPane.showMessageDialog(null, "Index out of range.");
             return false;
         } else {
-            System.out.println("Executando " + apkInstalados.get(i));
+            JOptionPane.showMessageDialog(null, "Executando " + apkInstalados.get(i));
         }
         return true;
     }
 
     @Override
-    public boolean executaPrograma(Programa programa) {
+    public boolean executaPrograma(IPrograma programa) {
         if (programa.getClass().isInstance(Aplicativo.class)) {
             for (Aplicativo apkInstalado : apkInstalados) {
                 if (programa.equals(apkInstalado)) {
-                    System.out.println("Executando aplicativo.");
+                    JOptionPane.showMessageDialog(null, "Executando aplicativo.");
                     return true;
                 }
             }
-            System.out.println("Aplicativo nao encontrado.");
+            JOptionPane.showMessageDialog(null, "Aplicativo nao encontrado.");
             return false;
         }
-        System.out.println("Este programa nao é um aplicativo para celular.");
+        JOptionPane.showMessageDialog(null, "Este programa nao é um aplicativo para celular.");
         return false;
     }
 

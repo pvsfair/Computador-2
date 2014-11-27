@@ -7,6 +7,7 @@ package computador.Perifericos;
 
 import computador.Generalizacoes.Device;
 import computador.Generalizacoes.Periferico;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -40,11 +41,11 @@ public class Monitor implements Device, Periferico {
     @Override
     public boolean ligar() {
         if (!isOn()) {
-            System.out.println("Ligando o monitor.");
+            JOptionPane.showMessageDialog(null, "Ligando o monitor.");
             this.OnOff = true;
             return true;
         } else {
-            System.out.println("O seu monitor ja esta ligado.");
+            JOptionPane.showMessageDialog(null, "O seu monitor ja esta ligado.");
             return false;
         }
     }
@@ -52,11 +53,11 @@ public class Monitor implements Device, Periferico {
     @Override
     public boolean desligar() {
         if (isOn()) {
-            System.out.println("Desligando o monitor.");
+            JOptionPane.showMessageDialog(null, "Desligando o monitor.");
             this.OnOff = false;
             return true;
         } else {
-            System.out.println("Voce nao precisa desligar um monitor que ja esta desligado.");
+            JOptionPane.showMessageDialog(null, "Voce nao precisa desligar um monitor que ja esta desligado.");
             return false;
         }
     }

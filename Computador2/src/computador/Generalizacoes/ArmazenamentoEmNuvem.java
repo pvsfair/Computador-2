@@ -11,13 +11,14 @@ import java.util.List;
  *
  * @author Paulo Victor
  */
-public abstract class ArmazenamentoEmNuvem {
+public abstract class ArmazenamentoEmNuvem extends Programa{
     protected int espacoArmazenamento;
     protected String usuario;
     protected String senha;
     protected List<Arquivo> arquivosArmazenados;
 
     public ArmazenamentoEmNuvem(int espacoArmazenamento, String usuario, String senha) {
+        super("Armazenamento");
         this.espacoArmazenamento = espacoArmazenamento;
         this.usuario = usuario;
         this.senha = senha;

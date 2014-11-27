@@ -6,8 +6,9 @@
 package computador.Computadores;
 
 import computador.Generalizacoes.Device;
-import computador.Generalizacoes.Programa;
+import computador.Generalizacoes.IPrograma;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,7 +22,7 @@ public abstract class Computador implements Device {
     protected float processadorGHz;
     protected String processadorModelo;
     protected boolean OnOff;
-    protected Programa[] programasPadroesInstalados = new Programa[3];
+    protected IPrograma[] programasPadroesInstalados = new IPrograma[3];
 
     public Computador() {
         this.HD = 500;
@@ -42,14 +43,14 @@ public abstract class Computador implements Device {
     @Override
     public boolean ligar() {
         if (!isOn()) {
-            System.out.println("Ligando o " + this + ".");
+            JOptionPane.showMessageDialog(null, "Ligando o " + this + ".");
             this.OnOff = true;
             Computador.numComputadoresLigados++;
-            System.out.println("Iniciando SO.");
+            JOptionPane.showMessageDialog(null, "Iniciando SO.");
             this.iniciaSO();
             return true;
         } else {
-            System.out.println("O seu " + this + " ja esta ligado.");
+            JOptionPane.showMessageDialog(null, "O seu " + this + " ja esta ligado.");
             return false;
         }
     }
@@ -57,13 +58,13 @@ public abstract class Computador implements Device {
     @Override
     public boolean desligar() {
         if (isOn()) {
-            System.out.println("Finalizando SO.");
-            System.out.println("Desligando o computador.");
+            JOptionPane.showMessageDialog(null, "Finalizando SO.");
+            JOptionPane.showMessageDialog(null, "Desligando o computador.");
             this.OnOff = false;
             Computador.numComputadoresLigados--;
             return true;
         } else {
-            System.out.println("Voce nao precisa desligar um computador que ja esta desligado.");
+            JOptionPane.showMessageDialog(null, "Voce nao precisa desligar um computador que ja esta desligado.");
             return false;
         }
     }
@@ -78,23 +79,26 @@ public abstract class Computador implements Device {
             this.desligar();
             this.ligar();
         } else {
-            System.out.println("Nao faz sentido reiniciar um computador que esta desligado.");
+            JOptionPane.showMessageDialog(null, "Nao faz sentido reiniciar um computador que esta desligado.");
         }
     }
 
-    public static void mostrarComputadores(ArrayList<Computador> computadores) {
+    public static String mostrarComputadores(ArrayList<Computador> computadores) {
+        String string = "";
         int i = 1;
         for (Computador computador : computadores) {
-            System.out.println(i + " - " + computador + ((computador.isOn()) ? " Ligado" : " Desligado"));
+            string += (i + " - " + computador + ((computador.isOn()) ? " Ligado" : " Desligado"));
+            string += '\n';
             i++;
         }
+        return string;
     }
 
     protected abstract void iniciaSO();
 
     public abstract boolean executaPrograma(int i);
 
-    public abstract boolean executaPrograma(Programa programa);
+    public abstract boolean executaPrograma(IPrograma programa);
 
     protected abstract void instalarProgramasPadroes();
 
@@ -108,8 +112,8 @@ public abstract class Computador implements Device {
 
     public void setHD(int HD) {
         if (HD < 1) {
-            System.out.println("Seu computador nao pode ter menos de 1GB de espaço de armazenamento no HD");
-            System.out.println("Seu HD tem agora 10GB de armazenamento.");
+            JOptionPane.showMessageDialog(null, "Seu computador nao pode ter menos de 1GB de espaço de armazenamento no HD");
+            JOptionPane.showMessageDialog(null, "Seu HD tem agora 10GB de armazenamento.");
             this.HD = 10;
         } else {
             this.HD = HD;
@@ -122,8 +126,8 @@ public abstract class Computador implements Device {
 
     public void setRAM(int RAM) {
         if (RAM < 1) {
-            System.out.println("Seu computador nao pode ter menos de 1GB de memória RAM");
-            System.out.println("Sua RAM tem agora 1GB.");
+            JOptionPane.showMessageDialog(null, "Seu computador nao pode ter menos de 1GB de memória RAM");
+            JOptionPane.showMessageDialog(null, "Sua RAM tem agora 1GB.");
             this.RAM = 1;
         } else {
             this.RAM = RAM;
@@ -136,8 +140,8 @@ public abstract class Computador implements Device {
 
     public void setProcessadorGHz(float processadorGHz) {
         if (processadorGHz < 0.5f) {
-            System.out.println("Seu computador nao pode ter um processador com clock menor que 0.5 GHz, até meu celular tem mais poder de processamento...");
-            System.out.println("O clock do processamento do seu processador agora é 0.5 GHz.");
+            JOptionPane.showMessageDialog(null, "Seu computador nao pode ter um processador com clock menor que 0.5 GHz, até meu celular tem mais poder de processamento...");
+            JOptionPane.showMessageDialog(null, "O clock do processamento do seu processador agora é 0.5 GHz.");
             this.processadorGHz = 0.5f;
         } else {
             this.processadorGHz = processadorGHz;
@@ -150,15 +154,15 @@ public abstract class Computador implements Device {
 
     public void setProcessadorModelo(String processadorModelo) {
         if (processadorModelo.equals("")) {
-            System.out.println("Você nao instalou nenhum processador.");
-            System.out.println("Você agora tem um Intel Core i3");
+            JOptionPane.showMessageDialog(null, "Você nao instalou nenhum processador.");
+            JOptionPane.showMessageDialog(null, "Você agora tem um Intel Core i3");
             this.processadorModelo = "Intel Core i3";
         } else {
             this.processadorModelo = processadorModelo;
         }
     }
 
-    public Programa[] getProgramasPadroesInstalados() {
+    public IPrograma[] getProgramasPadroesInstalados() {
         return programasPadroesInstalados;
     }
 

@@ -7,13 +7,22 @@ package computador.Generalizacoes;
 
 /**
  *
- * @author Paulo
+ * @author Paulo Victor
  */
-public interface Programa {
+public abstract class Programa implements IPrograma{
 
-    public void iniciar();
+    protected String nomeDoPrograma;
 
-    public void executar();
+    public Programa(String nomeDoPrograma) {
+        this.nomeDoPrograma = nomeDoPrograma;
+    }
 
-    public void finalizar();
+    @Override
+    public String toString() {
+        return nomeDoPrograma;
+    }
+
+    public String getNomeDoPrograma() {
+        return nomeDoPrograma;
+    }
 }

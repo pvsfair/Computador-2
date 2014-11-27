@@ -5,18 +5,17 @@
  */
 package computador.Programas;
 
+import computador.Generalizacoes.IPrograma;
 import computador.Generalizacoes.Programa;
 
 /**
  *
  * @author Paulo
  */
-public class Notepad implements Programa {
-
-    private String nomeDoPrograma;
+public class Notepad extends Programa{
 
     public Notepad() {
-        this.nomeDoPrograma = "Notepad";
+        super("Notepad");
     }
 
     @Override

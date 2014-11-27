@@ -6,15 +6,14 @@
 package computador.Programas;
 
 import computador.Generalizacoes.ArmazenamentoEmNuvem;
-import computador.Generalizacoes.Programa;
+import computador.Generalizacoes.IPrograma;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Paulo Victor
  */
-public class Dropbox extends ArmazenamentoEmNuvem implements Programa {
-
-    private String nomeDoPrograma;
+public class Dropbox extends ArmazenamentoEmNuvem implements IPrograma {
 
     public Dropbox() {
         super(4, "admin", "admin");
@@ -23,6 +22,7 @@ public class Dropbox extends ArmazenamentoEmNuvem implements Programa {
 
     public Dropbox(int espacoArmazenamento, String usuario, String senha) {
         super(espacoArmazenamento, usuario, senha);
+        this.nomeDoPrograma = "Dropbox";
     }
 
     @Override
@@ -42,12 +42,11 @@ public class Dropbox extends ArmazenamentoEmNuvem implements Programa {
 
     public static boolean login(Dropbox drop, String usuario, String senha) {
         if (drop.usuario.equals(usuario) && drop.senha.equals(senha)) {
-            System.out.println("Login Realizado com sucesso.");
+            JOptionPane.showMessageDialog(null, "Login Realizado com sucesso.");
             return true;
         } else {
-            System.out.println("Usuario ou senha errados.");
+            JOptionPane.showMessageDialog(null, "Usuario ou senha errados.");
             return false;
         }
     }
-
 }

@@ -9,6 +9,7 @@ import computador.Generalizacoes.Jogavel;
 import computador.Perifericos.Monitor;
 import computador.Perifericos.Teclado;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,7 +30,7 @@ public class GamerPC extends PC{
     public boolean jogarJogo(Jogavel jogo){
         for (Jogavel jogoInstalado : jogosInstalados) {
             if(jogo.getClass().equals(jogoInstalado)){
-                System.out.println("Executando Jogo");
+                JOptionPane.showMessageDialog(null, "Executando Jogo");
                 return true;
             }
         }
